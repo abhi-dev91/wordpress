@@ -13,7 +13,3 @@ hooks:
     - location: scripts/permission.sh
       timeout: 300
       runas: root
-  BeforeInstall:
-    - location: scripts/BeforeInstall.sh
-      timeout: 300
-      runas: root
