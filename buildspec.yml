@@ -1,0 +1,20 @@
+version: 0.2
+
+env:
+   parameter-store:
+           DB_USER: "/abhishek/DBUSER"
+           DB_PASSWORD: "/abhishek/DBPASS"
+           DB_HOST: "/abhishek/DBHOST"
+           DB_NAME: "/abhishek/DBNAME"
+
+phases:
+    build:
+        commands:
+            - sed -i 's/$DBNAME/'$DB_NAME'/' wp-config.php
+            - sed -i 's/$DBUSER/'$DB_USER'/' wp-config.php
+            - sed -i 's/$DBPASS/'$DB_PASSWORD'/' wp-config.php
+            - sed -i 's/$DBHOST/'$DB_HOST'/' wp-config.php
+
+artifacts:
+        files:
+           - '**/*'
