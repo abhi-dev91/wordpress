@@ -3,3 +3,17 @@ os: linux
 files:
     - source: .
       destination: /var/www/html/
+
+hooks:
+  ApplicationStart:
+    - location: scripts/start.sh
+      timeout: 300
+      runas: root
+  AfterInstall:
+    - location: scripts/permission.sh
+      timeout: 300
+      runas: root
+  BeforeInstall:
+    - location: scripts/BeforeInstall.sh
+      timeout: 300
+      runas: root
